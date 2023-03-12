@@ -22,7 +22,7 @@ class StatementController extends Controller
      */
     public function store(Request $request)
     {
-      //  return $request->all();
+        //  return $request->all();
         $statement = new Statement();
 
         $statement->store($request);
@@ -49,9 +49,9 @@ class StatementController extends Controller
         // return $statement;
         $_statement = new Statement();
 
-        $_statement->updateStatement($request,$statement);
+        $_statement->updateStatement($request, $statement);
 
-        return response()->json($_statement,202);
+        return response()->json($_statement, 202);
 
     }
 
@@ -64,6 +64,6 @@ class StatementController extends Controller
 
         $_statement->deleteStatement($statement);
 
-        return response()->json($_statement,204);
+        return response()->json($_statement, 204);
     }
 }
