@@ -4,7 +4,13 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use \App\Models\User;
+use \App\Models\Role;
+use StatementFactory;
 
+/**
+ * Summary of DatabaseSeeder
+ */
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,11 +18,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Role::factory()->create(
+            [
+            'name' => 'user',
+            ]
+        );
+
+        Role::factory()->create(
+            [
+            'name' => 'admin',
+            ]
+        );
+
+         User::factory(10)->hasStatements(3)->create();
+
+        User::factory()->create(
+            [
+            'name' => 'admin',
+            'email' => 'test@example.com',
+            'role_id' => 2
+             ]
+        );
+
     }
 }
