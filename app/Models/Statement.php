@@ -9,17 +9,30 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\Request;
 
+/**
+ * Summary of Statement
+ */
 class Statement extends Model
 {
+    use HasFactory;
     protected $table = 'statement';
 
     protected $fillable = ['user_id','name'];
 
+    /**
+     * Summary of user
+     * @return BelongsTo
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * Summary of store
+     * @param Request $request
+     * @return bool
+     */
     public function store(Request $request): bool
     {
         $statement = self::create([
@@ -29,6 +42,11 @@ class Statement extends Model
 
         return true;
     }
+     /**
+      * Summary of showStatement
+      * @param Statement $statement
+      * @return mixed
+      */
      public function showStatement(Statement $statement)
      {
 
@@ -36,6 +54,12 @@ class Statement extends Model
 
     }
 
+     /**
+      * Summary of updateStatement
+      * @param Request $request
+      * @param Statement $statement
+      * @return string
+      */
      public function updateStatement(Request $request, Statement $statement): string
      {
 
@@ -50,6 +74,11 @@ class Statement extends Model
 
      }
 
+      /**
+       * Summary of deleteStatement
+       * @param Statement $statement
+       * @return bool
+       */
       public function deleteStatement(Statement $statement): bool
      {
 

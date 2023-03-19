@@ -12,6 +12,9 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
+/**
+ * Summary of User
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -61,6 +64,10 @@ class User extends Authenticatable
         return [];
     }
 
+    /**
+     * Summary of role
+     * @return BelongsTo
+     */
     public function role(): BelongsTo
     {
 
@@ -68,6 +75,10 @@ class User extends Authenticatable
 
     }
 
+    /**
+     * Summary of statements
+     * @return HasMany
+     */
     public function statements(): HasMany
     {
 
